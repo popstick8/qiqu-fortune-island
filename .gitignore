@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+client/dist/
+server/dist/
+*.tsbuildinfo
+
+# Local environment
+.env
+.env.*
+!.env.example
+
+# Logs and temporary runtime files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.dev-server.*.log
+.mobile-check-dev.log
+.tunnel-logs/
+local
+
+# Test/coverage caches
+coverage/
+.nyc_output/
+.vite/
+
+# Generated screenshots and local scratch files
+.tmp-*
+*.tmp
+
+# Local audio library
+# Keep music, sound effects, lyrics, and the generated manifest on this machine.
+# Public clones fall back to the built-in synthesized audio until the user adds
+# audio files they are licensed to use.
+client/public/audio/bgm/*
+!client/public/audio/bgm/.gitkeep
+client/public/audio/sfx/*
+!client/public/audio/sfx/.gitkeep
+client/public/audio/manifest.json
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

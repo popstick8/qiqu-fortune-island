@@ -1,0 +1,19 @@
+{
+  "name": "奇趣财富岛",
+  "short_name": "财富岛",
+  "description": "多人联网卡通大富翁网页游戏",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#68ddff",
+  "theme_color": "#2fa8ff",
+  "icons": [
+    {
+      "src": "/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
