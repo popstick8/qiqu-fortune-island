@@ -14,6 +14,10 @@
     "public": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/start-public.ps1",
     "public:sakura": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/start-public.ps1 -Mode custom",
     "public:stop": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/stop-public.ps1",
+    "docs:skills": "npx tsx scripts/generate-skill-card-rules.ts",
+    "docs:map": "npx tsx scripts/generate-map-plan.ts",
+    "docs": "npm run docs:skills && npm run docs:map",
+    "docs:audit": "npx tsx scripts/audit-rule-docs.ts",
     "build": "npm --workspace server run build && npm --workspace client run build",
     "typecheck": "npm --workspace server run typecheck && npm --workspace client run typecheck"
   },

@@ -12,6 +12,20 @@ server/dist/
 .env.*
 !.env.example
 
+# Credentials and private connection profiles
+.npmrc
+.netrc
+credentials*.json
+secrets*.json
+*.pem
+*.key
+*.p12
+*.pfx
+frpc*.ini
+frpc*.toml
+sakura*.ini
+sakura*.toml
+
 # Logs and temporary runtime files
 *.log
 npm-debug.log*
