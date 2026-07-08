@@ -26,29 +26,29 @@
 
 ## 1. 项目概览
 
-| 属性 | 详情 |
-|------|------|
-| **项目名称** | 奇趣财富岛 (Qiqu Fortune Island) |
-| **类型** | 卡通风格网页端多人联机大富翁游戏 |
-| **仓库结构** | npm Workspaces Monorepo |
-| **运行时** | Node.js (服务端) + 浏览器 (客户端) |
-| **协议** | 实时联机，Socket.IO WebSocket |
+| 属性         | 详情                                            |
+| ------------ | ----------------------------------------------- |
+| **项目名称** | 奇趣财富岛 (Qiqu Fortune Island)                |
+| **类型**     | 卡通风格网页端多人联机大富翁游戏                |
+| **仓库结构** | npm Workspaces Monorepo                         |
+| **运行时**   | Node.js (服务端) + 浏览器 (客户端)              |
+| **协议**     | 实时联机，Socket.IO WebSocket                   |
 | **权威来源** | 服务端是唯一权威状态来源 (Server-authoritative) |
-| **语言** | TypeScript (strict mode) 全栈 |
-| **许可证** | 原创作品，非官方 |
+| **语言**     | TypeScript (strict mode) 全栈                   |
+| **许可证**   | 原创作品，非官方                                |
 
 ### 技术栈一览
 
-| 层面 | 技术 |
-|------|------|
-| 前端框架 | React 18 + TypeScript |
-| 构建工具 | Vite 5 |
-| 后端框架 | Express 4 + Socket.IO 4 |
-| 共享类型 | `@monopoly/shared` 本地 workspace 包 |
-| 图标库 | Lucide React |
-| CSS | 纯 CSS（无预处理/无 CSS-in-JS），CSS 自定义属性 |
-| 存储 | 内存存储 (MemoryRoomStore)，可替换接口 |
-| 开发工具 | tsx (服务端热重载), concurrently (并行启动) |
+| 层面     | 技术                                            |
+| -------- | ----------------------------------------------- |
+| 前端框架 | React 18 + TypeScript                           |
+| 构建工具 | Vite 5                                          |
+| 后端框架 | Express 4 + Socket.IO 4                         |
+| 共享类型 | `@monopoly/shared` 本地 workspace 包            |
+| 图标库   | Lucide React                                    |
+| CSS      | 纯 CSS（无预处理/无 CSS-in-JS），CSS 自定义属性 |
+| 存储     | 内存存储 (MemoryRoomStore)，可替换接口          |
+| 开发工具 | tsx (服务端热重载), concurrently (并行启动)     |
 
 ---
 
@@ -208,11 +208,11 @@
 
 ### 4.2 各包配置差异
 
-| 包 | module | moduleResolution | 特殊配置 |
-|----|--------|------------------|----------|
-| server | CommonJS | Node | esModuleInterop, outDir: dist |
-| client | ESNext | Bundler | jsx: react-jsx, noEmit |
-| shared | ESNext | Bundler | noEmit, 仅类型导出 |
+| 包     | module   | moduleResolution | 特殊配置                      |
+| ------ | -------- | ---------------- | ----------------------------- |
+| server | CommonJS | Node             | esModuleInterop, outDir: dist |
+| client | ESNext   | Bundler          | jsx: react-jsx, noEmit        |
+| shared | ESNext   | Bundler          | noEmit, 仅类型导出            |
 
 ---
 
@@ -298,13 +298,13 @@ GameState
 
 ### 6.1 模块职责
 
-| 模块 | 职责 | 不应做的事 |
-|------|------|-----------|
-| `index.ts` | HTTP 服务器启动，中间件，健康检查 | 不处理游戏逻辑 |
-| `socket.ts` | Socket.IO 事件注册，广播协调，回合计时器 | 不直接修改游戏状态 |
-| `data/*.ts` | 静态数据定义和导出 | 不引用 `game/` |
-| `game/*.ts` | 纯游戏逻辑函数，接收 GameState 并修改 | 不处理网络/IO |
-| `rooms/*.ts` | 房间生命周期，玩家管理 | 不处理具体游戏规则 |
+| 模块         | 职责                                     | 不应做的事         |
+| ------------ | ---------------------------------------- | ------------------ |
+| `index.ts`   | HTTP 服务器启动，中间件，健康检查        | 不处理游戏逻辑     |
+| `socket.ts`  | Socket.IO 事件注册，广播协调，回合计时器 | 不直接修改游戏状态 |
+| `data/*.ts`  | 静态数据定义和导出                       | 不引用 `game/`     |
+| `game/*.ts`  | 纯游戏逻辑函数，接收 GameState 并修改    | 不处理网络/IO      |
+| `rooms/*.ts` | 房间生命周期，玩家管理                   | 不处理具体游戏规则 |
 
 ### 6.2 游戏逻辑函数模式
 
@@ -466,11 +466,11 @@ function loadSession(): StoredSession | null {
 
 ### 8.1 事件命名约定
 
-| 方向 | 命名 | 说明 |
-|------|------|------|
-| 客户端→服务端 | `camelCase` 动词 | `rollDice`, `buyProperty`, `endTurn` |
+| 方向          | 命名                    | 说明                                            |
+| ------------- | ----------------------- | ----------------------------------------------- |
+| 客户端→服务端 | `camelCase` 动词        | `rollDice`, `buyProperty`, `endTurn`            |
 | 服务端→客户端 | `camelCase` 过去式/状态 | `gameStateUpdated`, `diceRolled`, `playerMoved` |
-| 双向确认 | `(data, ack) => void` | ack 回调返回 `SocketAck` |
+| 双向确认      | `(data, ack) => void`   | ack 回调返回 `SocketAck`                        |
 
 ### 8.2 广播模式
 
@@ -657,26 +657,26 @@ function scheduleTurnTimer(io, manager, room) {
 
 ### 12.1 文件命名
 
-| 类型 | 格式 | 示例 |
-|------|------|------|
-| React 组件 | PascalCase `.tsx` | `PlayerPanel.tsx`, `Dice.tsx` |
-| 游戏逻辑模块 | camelCase `.ts` | `createGameState.ts`, `movement.ts` |
-| 数据模块 | camelCase `.ts` | `bigMap.ts`, `skillCards.ts` |
-| 工具/配置 | camelCase `.ts` | `vite.config.ts` |
-| Markdown 文档 | UPPER_SNAKE_CASE `.md` | `GAME_RULES.md`, `SKILL_CARDS.md` |
+| 类型          | 格式                   | 示例                                |
+| ------------- | ---------------------- | ----------------------------------- |
+| React 组件    | PascalCase `.tsx`      | `PlayerPanel.tsx`, `Dice.tsx`       |
+| 游戏逻辑模块  | camelCase `.ts`        | `createGameState.ts`, `movement.ts` |
+| 数据模块      | camelCase `.ts`        | `bigMap.ts`, `skillCards.ts`        |
+| 工具/配置     | camelCase `.ts`        | `vite.config.ts`                    |
+| Markdown 文档 | UPPER_SNAKE_CASE `.md` | `GAME_RULES.md`, `SKILL_CARDS.md`   |
 
 ### 12.2 代码命名
 
-| 元素 | 格式 | 示例 |
-|------|------|------|
-| 接口/类型 | PascalCase | `GameState`, `PlayerState` |
-| 函数/方法 | camelCase | `rollDice`, `createGameState` |
-| 变量/常量 | camelCase | `turnTimers`, `initialMoney` |
-| 全局常量 | UPPER_SNAKE_CASE | `GO_TILE_ID`, `BOARD_SIZE` |
-| React 组件 | PascalCase | `ActionBar`, `PlayerPanel` |
-| CSS 类名 | camelCase | `.boardWrap`, `.playerCard` |
-| 事件名 | camelCase | `gameStateUpdated`, `diceRolled` |
-| ID 前缀 | 短前缀+随机字符 | `P` (Player), `log-`, `lottery-` |
+| 元素       | 格式             | 示例                             |
+| ---------- | ---------------- | -------------------------------- |
+| 接口/类型  | PascalCase       | `GameState`, `PlayerState`       |
+| 函数/方法  | camelCase        | `rollDice`, `createGameState`    |
+| 变量/常量  | camelCase        | `turnTimers`, `initialMoney`     |
+| 全局常量   | UPPER_SNAKE_CASE | `GO_TILE_ID`, `BOARD_SIZE`       |
+| React 组件 | PascalCase       | `ActionBar`, `PlayerPanel`       |
+| CSS 类名   | camelCase        | `.boardWrap`, `.playerCard`      |
+| 事件名     | camelCase        | `gameStateUpdated`, `diceRolled` |
+| ID 前缀    | 短前缀+随机字符  | `P` (Player), `log-`, `lottery-` |
 
 ### 12.3 Workspace 包命名
 
@@ -791,15 +791,15 @@ try {
 
 ### 15.1 npm scripts 体系
 
-| 命令 | 用途 |
-|------|------|
-| `npm run dev` | 并行启动前后端 |
-| `npm run dev:server` | 仅启动服务端 (tsx watch) |
-| `npm run dev:client` | 仅启动客户端 (vite) |
-| `npm run build` | 生产构建 |
-| `npm run typecheck` | 全项目类型检查 (tsc --noEmit) |
-| `npm run docs` | 生成规则文档 |
-| `npm run public` | 启动公网隧道 |
+| 命令                 | 用途                          |
+| -------------------- | ----------------------------- |
+| `npm run dev`        | 并行启动前后端                |
+| `npm run dev:server` | 仅启动服务端 (tsx watch)      |
+| `npm run dev:client` | 仅启动客户端 (vite)           |
+| `npm run build`      | 生产构建                      |
+| `npm run typecheck`  | 全项目类型检查 (tsc --noEmit) |
+| `npm run docs`       | 生成规则文档                  |
+| `npm run public`     | 启动公网隧道                  |
 
 ### 15.2 文档生成
 
@@ -813,16 +813,16 @@ try {
 
 ## 附录：常见反模式（应避免）
 
-| ❌ 反模式 | ✅ 正确做法 |
-|-----------|------------|
-| 客户端自行计算租金/资产 | 由服务端计算并推送，客户端仅展示 |
-| 在 `data/` 中引用 `game/` | data 层保持纯净，不依赖业务逻辑 |
-| 使用 TypeScript enum | 使用字符串联合类型 |
-| 可选属性不加 `\| undefined` | 始终显式标注 `\| undefined` |
-| 在组件中直接操作 DOM | 使用 React state 和事件处理 |
-| 创建新的 CSS 文件 | 将样式追加到 `styles.css` |
-| 硬编码中文字符串在新功能中 | 通过 `i18n.tsx` 的 `t()` 函数处理 |
-| 使用 `any` 类型 | 始终使用具体类型或 `unknown` + 类型守卫 |
+| ❌ 反模式                    | ✅ 正确做法                              |
+| --------------------------- | --------------------------------------- |
+| 客户端自行计算租金/资产     | 由服务端计算并推送，客户端仅展示        |
+| 在 `data/` 中引用 `game/`   | data 层保持纯净，不依赖业务逻辑         |
+| 使用 TypeScript enum        | 使用字符串联合类型                      |
+| 可选属性不加 `\| undefined` | 始终显式标注 `\| undefined`             |
+| 在组件中直接操作 DOM        | 使用 React state 和事件处理             |
+| 创建新的 CSS 文件           | 将样式追加到 `styles.css`               |
+| 硬编码中文字符串在新功能中  | 通过 `i18n.tsx` 的 `t()` 函数处理       |
+| 使用 `any` 类型             | 始终使用具体类型或 `unknown` + 类型守卫 |
 
 ---
 
